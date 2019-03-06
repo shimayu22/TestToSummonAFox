@@ -39,14 +39,20 @@ def get_fox_infomation():
 
     return shaping_title[0],link,src
 
+def check_fox_call(summons_line):
+    fox_cry_list = ["こーん","こん","コーン","コン"]
 
-text_string = input("狐を召喚してください：")
+    for fox_cry in fox_cry_list:
+        if fox_cry in summons_line:
+            return True
+    return False    
 
-if "こーん" in text_string or "こん" in text_string:
+summons_line = input("狐を召喚してください：")
+
+if check_fox_call(summons_line):
     title_text,url,image_url = get_fox_infomation()
     print(title_text)
     print(url)
     print(image_url)
 else:
     print("狐語でおｋ")
-
